@@ -16,16 +16,20 @@ export const useStyles = makeStyles({
     },
     appBar: {
         background: '#2566ca !important',
+        minHeight: '40px',
         display: 'flex',
         flexDirection: 'row',
         padding: '0 20px',  
         '& a': {    
             textAlign: 'center',
             textDecoration: 'none',
+            display: 'flex',
+            alignItems: 'center',
             '& button': {
                 color: '#fff',
                 fontSize: 14,
-                fontWeight: 600
+                fontWeight: 600,
+                padding: '0 20px'
             }
 
         }
@@ -35,5 +39,13 @@ export const useStyles = makeStyles({
             fontWeight: 'bold',
             textDecoration: 'underline'
 		}
-	}
+    },
+    footer:{
+        justifyContent: 'center',
+        alignItems: 'center',
+        '& a': {
+            display: 'flex',
+            alignItems: 'center'
+        }
+    }
 })

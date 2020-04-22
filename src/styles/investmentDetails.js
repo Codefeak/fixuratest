@@ -5,19 +5,14 @@ export const useStyles = makeStyles({
     padding: '24px 0'
   },
   fieldTitle: {
-    fontSize: 18,
     fontWeight: 600
   },
   fieldValue: {
-      textTransform: 'uppercase',
-      fontSize: '14px',
+      fontSize: '12px',
       fontWeight: 600
   },
-  list: {
-    '& li': {
-      paddingTop: '8px !important',
-      paddingBottom: '8px !important'
-    }
+  email: {
+
   }
   
 

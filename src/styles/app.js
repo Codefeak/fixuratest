@@ -23,6 +23,23 @@ export const theme = createMuiTheme({
 			root: {
 				padding: 0
 			}
+		},
+		MuiListItemText: {
+			root: {
+				display: 'flex',
+				alignItems: 'center',
+				'& h6': {
+					color: 'grey'
+				},
+				'& p': {
+					padding: '0 10px'
+				}
+			}
+		},
+		MuiListItem: {
+			root: {
+				padding: '0 !important'
+			}
 		}
 	}
 });

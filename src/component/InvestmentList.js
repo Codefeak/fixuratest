@@ -3,13 +3,14 @@ import {Paper} from '@material-ui/core';
 
 import RenderTable from './RenderTable';
 import Spinner from './Spinner';
+import {useStyles} from '../styles/investmentList'; 
 
 export default function (props) {
-    const {data} = props;
-    const [rowSelectedId, setRowSelectedId] = useState(null);
+    const {data, history} = props;
+    const classes = useStyles();
     
     const handleTableRowClick = id => {
-		setRowSelectedId(id);
+        history.push(`/investment/${id}`)
 	};
     
     let component;
@@ -22,7 +23,7 @@ export default function (props) {
                 <RenderTable 
                     data={filterData(data)}
                     headRows={headRows}
-                    rowSelectedId={rowSelectedId}
+                    classes={classes}
                     handleTableRowClick={handleTableRowClick}
                 />
             </Paper>

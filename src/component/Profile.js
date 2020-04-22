@@ -26,7 +26,7 @@ export default function (props) {
                         <Typography className={classes.fieldTitle}>Personal Information</Typography>
                         <Grid container>
                             <Grid item xs={6}>
-                                <List>
+                                <List className={classes.list}>
                                     <ListItem>
                                         <ListItemText primary={primaryText("Name:")} secondary={secondaryText(`${data.firstName} ${data.lastName}`)}/>
                                     </ListItem>
@@ -39,7 +39,7 @@ export default function (props) {
                                 </List>
                                 </Grid>
                             <Grid item xs={6}>
-                                <List>
+                                <List className={classes.list}>
                                     <ListItem>
                                         <ListItemText primary={primaryText("Gender:")} secondary={secondaryText(data.gender)}/>
                                     </ListItem>
@@ -57,7 +57,7 @@ export default function (props) {
                         <Typography className={classes.fieldTitle}>Account Information</Typography>
                         <Grid container>
                             <Grid item xs={6}>
-                                <List>
+                                <List className={classes.list}>
                                     <ListItem>
                                         <ListItemText primary={primaryText("Id:")} secondary={secondaryText(data.id)}/>
                                     </ListItem>
@@ -76,7 +76,7 @@ export default function (props) {
                                 </List>
                             </Grid>
                             <Grid item xs={6}>
-                                <List>
+                                <List className={classes.list}>
                                     <ListItem>
                                         <ListItemText primary={primaryText("Client Role:")} secondary={secondaryText(data.clientRole.encodedKey)}/>
                                     </ListItem>
@@ -114,33 +114,5 @@ export default function (props) {
     function formatDate(date) {
         const newDate = new Date(date);
         return newDate.toLocaleDateString("en-fi");
-    }
-
-    function renderAll() {
-       return <List container>
-                {Object.keys(data).map(item => {
-                    console.log(typeof data[item])
-                    if (typeof data[item] === 'object') {
-                        return (
-                            Object.keys(data[item]).map(key => {
-                                return (
-                                    <ListItem key={key}>
-                                        <Typography>{`${item} ${key}`}: </Typography>
-                                        <Typography>{data[item][key]}</Typography>
-                                    </ListItem>
-                                )
-                            })
-                        )
-                    } else {
-                        return (
-                            <ListItem key={item}>
-                                {console.log(data)}
-                                <Typography>{item}: </Typography>
-                                <Typography>{data[item]}</Typography>
-                            </ListItem>
-                        )
-                    }
-                })}
-            </List>
     }
 }
