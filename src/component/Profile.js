@@ -7,7 +7,6 @@ import {useStyles} from '../styles/profile';
 
 export default function (props) {
     const {data} = props;
-    console.log(data)
     const classes = useStyles();
     const [rowSelectedId, setRowSelectedId] = useState(null);
     

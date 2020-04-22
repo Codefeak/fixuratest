@@ -13,7 +13,6 @@ export default function (props) {
         component = <Spinner/>
     } else {
         const filteredData = data.find(item => item.id === investmentId);
-        console.log(filteredData)
         component = (
             <Grid item xs={12}>
                 <Card className={classes.profileContainer}>
@@ -229,7 +228,6 @@ function renderAll(data) {
             } else {
                 return (
                     <ListItem key={key}>
-                        {console.log(data)}
                         <Typography>{key}: </Typography>
                         <Typography>{value}</Typography>
                     </ListItem>
