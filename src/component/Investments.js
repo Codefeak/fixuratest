@@ -17,11 +17,10 @@ export default function (props) {
         component = <Spinner/>
     } else {
         const headRows = getHeadRows(data);
-        console.log(headRows)
         component = (
             <Paper container>
                 <RenderTable 
-                    data={formatData(data)}
+                    data={filterData(data)}
                     headRows={headRows}
                     rowSelectedId={rowSelectedId}
                     handleTableRowClick={handleTableRowClick}
@@ -35,11 +34,27 @@ export default function (props) {
     };
 
     function getHeadRows (data) {
-        return Object.keys(data).map(key => (
-             {id: key, label: key.toUpperCase()}
-        ))          
+         return [
+             {id: 'name', label: 'Name'},
+             {id: 'accountType', label: 'Account type'},
+             {id: 'availableBalance', label: 'Available Balance'},
+             {id: 'holdBalance', label: 'Hold Balance'},
+             {id: 'lockedBalance', label: 'Locked Balance'},
+             {id: 'accountState', label: 'Account State'}
+
+         ]
     }
-    function formatData (data) {
-        return Object.entries(data).map((key, value) => ({[key]: value}))
+
+    function filterData (data) {
+        const keyArray = ["id", "name", "accountType", "availableBalance", "holdBalance", "lockedBalance", "accountState"];
+        return data.map(item => {
+            return Object.entries(item).reduce((acc, [key, value]) => {
+                if(keyArray.includes(key)) {
+                    acc = {...acc, [key]: value}
+                }
+                return acc;
+            }, {})
+        })
     }
+    
 }

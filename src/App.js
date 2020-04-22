@@ -13,6 +13,7 @@ import {theme, commonStyles} from './styles/app';
 
 function App() {
 const [user, setUser] = useState(null);
+const [investments, setInvestments] = useState(null);
 const classes = commonStyles();
 const {REACT_APP_API_KEY, REACT_APP_API_URL, REACT_APP_USER_ID} = process.env;
 
@@ -21,16 +22,22 @@ useEffect(() => {
     method: 'get',
     url: `${REACT_APP_API_URL}/${REACT_APP_USER_ID}/`,
     headers: {
-
       'x-api-key': `${REACT_APP_API_KEY}`
     }
   }).then(response => setUser(response.data))
+  axios({
+    method: 'get',
+    url: `${REACT_APP_API_URL}/${REACT_APP_USER_ID}/investments`,
+    headers: {
+      'x-api-key': `${REACT_APP_API_KEY}`
+    }
+  }).then(response => setInvestments(response.data))
 }, [])
 
 const routes = (
   <>
     <Route exact path='/profile' render={props => <Profile data={user} {...props}/>}/>
-    <Route exact path='/investments' render={props => <Investments data={user} {...props}/>}/>
+    <Route exact path='/investments' render={props => <Investments data={investments} {...props}/>}/>
   </>
 )
 

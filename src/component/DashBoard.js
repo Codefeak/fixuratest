@@ -7,7 +7,6 @@ import {useStyles} from '../styles/profile';
 
 export default function (props) {
     const {data} = props;
-    console.log(data)
     const classes = useStyles();
     const [rowSelectedId, setRowSelectedId] = useState(null);
     
@@ -50,7 +49,6 @@ export default function (props) {
     function renderAll() {
        return <List container>
                 {Object.keys(data).map(item => {
-                    console.log(typeof data[item])
                     if (typeof data[item] === 'object') {
                         return (
                             Object.keys(data[item]).map(key => {
@@ -65,7 +63,6 @@ export default function (props) {
                     } else {
                         return (
                             <ListItem key={item}>
-                                {console.log(data)}
                                 <Typography>{item}: </Typography>
                                 <Typography>{data[item]}</Typography>
                             </ListItem>

@@ -30,18 +30,19 @@ export default function (props) {
                                     <ListItem>
                                         <ListItemText primary={primaryText("Name:")} secondary={secondaryText(`${data.firstName} ${data.lastName}`)}/>
                                     </ListItem>
-                                    <Divider/>
                                     <ListItem>
                                         <ListItemText primary={primaryText("Email:")} secondary={secondaryText(data.emailAddress)}/>
                                     </ListItem>
-                                    <Divider/>
                                     <ListItem>
                                         <ListItemText primary={primaryText("Date of Birth:")} secondary={secondaryText(formatDate(data.birthDate))}/>
                                     </ListItem>
-                                    <Divider/>
+                                </List>
+                                </Grid>
+                            <Grid item xs={6}>
+                                <List>
                                     <ListItem>
                                         <ListItemText primary={primaryText("Gender:")} secondary={secondaryText(data.gender)}/>
-                                    </ListItem><Divider/>
+                                    </ListItem>
                                     <ListItem>
                                         <ListItemText primary={primaryText("Language:")} secondary={secondaryText(data.preferredLanguage)}/>
                                     </ListItem>
@@ -50,11 +51,50 @@ export default function (props) {
                         </Grid>
                     </CardContent>
                 </Card>
+                <Divider/>
                 <Card>
-                    <CardContent>
-                        
+                <CardContent>
+                        <Typography className={classes.fieldTitle}>Account Information</Typography>
+                        <Grid container>
+                            <Grid item xs={6}>
+                                <List>
+                                    <ListItem>
+                                        <ListItemText primary={primaryText("Id:")} secondary={secondaryText(data.id)}/>
+                                    </ListItem>
+                                    <ListItem>
+                                        <ListItemText primary={primaryText("Creation Date:")} secondary={secondaryText(formatDate(data.creationDate))}/>
+                                    </ListItem>
+                                    <ListItem>
+                                        <ListItemText primary={primaryText("Activation Date:")} secondary={secondaryText(formatDate(data.activationDate))}/>
+                                    </ListItem>
+                                    <ListItem>
+                                        <ListItemText primary={primaryText("Approved Date:")} secondary={secondaryText(formatDate(data.approvedDate))}/>
+                                    </ListItem>
+                                    <ListItem>
+                                        <ListItemText primary={primaryText("Last Modified Date:")} secondary={secondaryText(formatDate(data.lastModifiedDate))}/>
+                                    </ListItem>
+                                </List>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <List>
+                                    <ListItem>
+                                        <ListItemText primary={primaryText("Client Role:")} secondary={secondaryText(data.clientRole.encodedKey)}/>
+                                    </ListItem>
+                                    <ListItem>
+                                        <ListItemText primary={primaryText("Encoded Key:")} secondary={secondaryText(data.encodedKey)}/>
+                                    </ListItem> 
+                                    <ListItem>
+                                        <ListItemText primary={primaryText("Group Loan Cycle:")} secondary={secondaryText(data.groupLoanCycle)}/>
+                                    </ListItem>
+                                    <ListItem>
+                                        <ListItemText primary={primaryText("State:")} secondary={secondaryText(data.state)}/>
+                                    </ListItem>
+                                </List>
+                            </Grid>   
+                        </Grid>
                     </CardContent>
                 </Card>
+                <Divider/>
             </Grid>
         );
     }
@@ -64,7 +104,7 @@ export default function (props) {
     };
 
     function primaryText(string) {
-        return <Typography variant="title">{string}</Typography>
+        return <Typography variant="subtitle1">{string}</Typography>
     }
 
     function secondaryText(string) {
