@@ -27,12 +27,12 @@ export default function (props) {
                 </Grid>
             </Grid>
             <AppBar position="static" className={classes.appBar}>
-                <Link to="/profile" activeClassName={classes.active}>
+                <Link exact to="/" activeClassName={classes.active}>
                     <Button>
                         Profile
                     </Button>
                 </Link>
-                <Link to="/investments" activeClassName={classes.active}>
+                <Link exact to="/investments" activeClassName={classes.active}>
                     <Button>
                         Investments
                     </Button>

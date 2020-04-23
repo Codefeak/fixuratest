@@ -37,7 +37,7 @@ useEffect(() => {
 
 const routes = (
   <>
-    <Route exact path='/profile' render={props => <Profile data={user} {...props}/>}/>
+    <Route exact path='/' render={props => <Profile data={user} {...props}/>}/>
     <Route exact path='/investments' render={props => <Investments data={investments} {...props}/>}/>
     <Route exact path='/investment/:id' component={props => <InvestmentDetails data={investments} {...props}/>}/>
   </>
